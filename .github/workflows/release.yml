@@ -48,6 +48,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          
   recovery:
     name: Recovery
     needs: release
@@ -67,6 +68,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Revert the commit
+        run: |
+          
+
       - name: Build zip archive
         run: make zip
 
@@ -77,7 +82,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Completely obliterate everything
-        run: terraform destroy
+        run: terraform destroy -auto-approve
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
