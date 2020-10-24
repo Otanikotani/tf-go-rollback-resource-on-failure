@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Test secrets are set
         run: |
-          if [ -n "$AWS_ACCESS_KEY_ID" ] || [ -n "$AWS_SECRET_ACCESS_KEY" ]; then
+          if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
             echo "Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in repo secrets"
             exit 1
           fi
