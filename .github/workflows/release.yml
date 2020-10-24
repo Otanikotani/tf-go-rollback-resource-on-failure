@@ -71,5 +71,5 @@ jobs:
       - name: Revert the last commit
         run: |
           ls -ltra
-          git revert ${HEAD}~1 --no-edit
-          git push origin
+          git revert HEAD~1 --no-edit
+          git push origin # Since we revert the new commit will be pushed and the workflow will be run again. This will redeploy old stuff.
