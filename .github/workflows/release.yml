@@ -71,9 +71,8 @@ jobs:
       - name: Revert the last commit
         run: |
           ls -ltra
-          git pull
-          git reset ${HEAD}~1 --hard
-          git push origin --force
+          git revert ${HEAD}~1 --no-edit
+          git push origin
 
       - name: Build zip archive
         run: make zip
