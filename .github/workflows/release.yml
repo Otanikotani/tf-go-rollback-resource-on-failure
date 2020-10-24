@@ -70,7 +70,7 @@ jobs:
 
       - name: Revert the last commit
         env:
-          SHA: ${GITHUB_SHA}
+          SHA: ${{ GITHUB_SHA }}
         run: |
           ls -ltra
           git reset ${SHA}~1 --hard
