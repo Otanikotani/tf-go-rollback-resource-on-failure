@@ -1,16 +1,14 @@
 terraform {
   backend "s3" {
-    bucket = "aartykhov-co-tf-state"
-    key = "tf-lc.tfstate"
+    bucket = "aartykhov-tf-go-rollback-resource-on-failure"
+    key = "tf-go-rollback-resource-on-failure.tfstate"
     region = "us-east-1"
     encrypt = true
-    profile = "co-admin"
   }
 }
 
 provider "aws" {
   region = "us-east-1"
-  profile = "co-admin"
 }
 
 # Define a Lambda function.
