@@ -1,4 +1,4 @@
-module github.com/otanikotani/goaswtf
+module github.com/otanikotani/tf-go-rollback-resource-on-failure
 
 go 1.13
 

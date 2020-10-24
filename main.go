@@ -2,9 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"github.com/aws/aws-lambda-go/lambda"
-	"os"
 )
 
 type myEvent struct {
@@ -12,13 +10,9 @@ type myEvent struct {
 }
 
 func handleRequest(ctx context.Context, name myEvent) (string, error) {
-	return fmt.Sprintf("Hello 4 %s!", name.Name), nil
+	return "{\"hello\": \"world\"}", nil
 }
 
 func main() {
-	if len(os.Args) > 1 {
-		fmt.Println("Run as cli")
-	} else {
-		lambda.Start(handleRequest)
-	}
+	lambda.Start(handleRequest)
 }

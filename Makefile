@@ -1,4 +1,4 @@
-PROJECT_NAME := "goaswtf"
+PROJECT_NAME := "tf-go-rollback-resource-on-failure"
 PKG := "github.com/otanikotani/$(PROJECT_NAME)"
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
