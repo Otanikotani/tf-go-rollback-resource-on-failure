@@ -72,6 +72,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git pull
+          git pull --depth=5
           git revert HEAD~1 --no-edit
           git push origin # Since we revert the new commit will be pushed and the workflow will be run again. This will redeploy old stuff.
