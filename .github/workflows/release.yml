@@ -72,6 +72,8 @@ jobs:
         run: |
           ls -ltra
           git status
+          git fetch
+          git rev-parse HEAD
           git reset --hard HEAD~1
           git push origin --force
 
