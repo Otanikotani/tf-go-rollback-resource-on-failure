@@ -67,6 +67,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Build zip archive
+        run: make zip
+
       - uses: hashicorp/setup-terraform@v1
       - run: terraform init
         env:
