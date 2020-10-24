@@ -72,7 +72,7 @@ jobs:
         run: |
           ls -ltra
           git pull
-          git reset ${HEAD}~1 --hard
+          git reset HEAD~1 --hard
           git push origin --force
 
       - name: Build zip archive
