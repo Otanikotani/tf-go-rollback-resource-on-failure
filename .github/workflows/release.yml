@@ -69,9 +69,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Revert the last commit
+        env:
+          SHA: ${GITHUB_SHA}
         run: |
           ls -ltra
-          git reset current~1 --hard
+          git reset ${SHA}~1 --hard
           git push origin --force
 
       - name: Build zip archive
