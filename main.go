@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
@@ -10,6 +11,7 @@ type myEvent struct {
 }
 
 func handleRequest(ctx context.Context, name myEvent) (string, error) {
+	fmt.Println("Hello world ok")
 	return "{\"hello\": \"world\"}", nil
 }
 

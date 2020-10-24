@@ -68,9 +68,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Revert the commit
+      - name: Revert the last commit
         run: |
-          
+          git reset --hard HEAD~1
+          git push origin --force
 
       - name: Build zip archive
         run: make zip
@@ -81,8 +82,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      - name: Completely obliterate everything
-        run: terraform destroy -auto-approve
+      - name: Upload to AWS
+        run: make deploy.done
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
