@@ -69,6 +69,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Revert the last commit
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git revert ${GITHUB_SHA} --no-edit
           git push origin # Since we revert the new commit will be pushed and the workflow will be run again. This will redeploy old stuff.
