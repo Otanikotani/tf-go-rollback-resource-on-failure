@@ -12,7 +12,7 @@ type myEvent struct {
 
 func handleRequest(ctx context.Context, name myEvent) (string, error) {
 	fmt.Println("Hello world ok")
-	return "{\"hello\": \"world\"}", nil
+	return "{\"hello 1\": \"world\"}", nil
 }
 
 func main() {
